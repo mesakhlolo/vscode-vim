@@ -1,0 +1,66 @@
+{
+  // ===== VIM =====
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Esc>"],
+      "when": ["editorFocus"],
+      "commands": [":nohl"],
+      "silent": true
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+    "<C-j>": false,
+    "<C-p>": false
+  },
+  "vim.incsearch": true,
+  "vim.searchHighlightColor": "#f6ff0080",
+  "vim.searchHighlightTextColor": "#fff",
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.highlightedyank.enable": true,
+  "vim.smartRelativeLine": true,
+  "vim.surround": true,
+  "vim.easymotion": true,
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  // ===== VIM =====
+
+  // 1440p 24inch external monitor
+  "window.zoomLevel": 1,
+  // font and theme
+  "editor.mouseWheelZoom": false,
+  "editor.fontSize": 16,
+  "editor.lineHeight": 1.4,
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontLigatures": false,
+  "workbench.iconTheme": "material-icon-theme",
+
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  // everything else
+  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": false,
+  "workbench.activityBar.compact": true,
+  "chat.viewSessions.orientation": "stacked",
+  "chat.fontSize": 15,
+  "workbench.startupEditor": "none",
+  "editor.wordWrap": "on",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "workbench.editor.wrapTabs": true,
+  "workbench.browser.openLocalhostLinks": false,
+  "workbench.experimental.modernUI": false,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "workbench.editor.useModal": "off"
+}
