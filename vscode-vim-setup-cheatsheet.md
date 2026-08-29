@@ -23,6 +23,7 @@ Terinspirasi dari dotfiles: <https://github.com/leviFrosty/dotfiles/tree/main/Li
 | `space c a`           | Code action          |
 | `space r n`           | Rename               |
 | `space s` / `space v` | Split kanan / bawah  |
+| `space k w` | close all tabs  |
 
 ## Ctrl shortcuts
 
