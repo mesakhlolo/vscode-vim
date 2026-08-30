@@ -1,8 +1,6 @@
 // Place your key bindings in this file to override the defaults
 [
-  // ======================================
   // ====== KEYBINDINGS VSCode (custom) ===
-  // ======================================
   // semicolon at the end
   {
     "key": "alt+;",
@@ -71,9 +69,7 @@
     "command": "-workbench.action.zoomReset"
   },
 
-  // ======================================
   // ====== VIM LEADER space ==============
-  // ======================================
   {
     "key": "space w", // Save + format
     "command": "runCommands",
@@ -153,9 +149,7 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
 
-  // =========================
   // ==== BUFFER / TAB =======
-  // =========================
   {
     "key": "tab",
     "command": "workbench.action.nextEditorInGroup",

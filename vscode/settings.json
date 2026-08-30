@@ -12,7 +12,8 @@
     "<C-a>": false,
     "<C-f>": false,
     "<C-j>": false,
-    "<C-p>": false
+    "<C-p>": false,
+    "<C-b>": false
   },
   "vim.incsearch": true,
   "vim.searchHighlightColor": "#f6ff0080",
@@ -32,13 +33,13 @@
   // 1440p 24inch external monitor
   "window.zoomLevel": 1,
   // font and theme
+  "editor.cursorBlinking": "solid",
   "editor.mouseWheelZoom": false,
   "editor.fontSize": 16,
-  "editor.lineHeight": 1.4,
   "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontLigatures": false,
   "workbench.iconTheme": "material-icon-theme",
-
+  "workbench.colorTheme": "One Dark Pro",
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[php]": {
@@ -62,5 +63,6 @@
   "workbench.browser.openLocalhostLinks": false,
   "workbench.experimental.modernUI": false,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
-  "workbench.editor.useModal": "off"
+  "workbench.editor.useModal": "off",
+  "workbench.activityBar.location": "top"
 }
