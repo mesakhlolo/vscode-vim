@@ -23,20 +23,19 @@ Terinspirasi dari dotfiles: <https://github.com/leviFrosty/dotfiles/tree/main/Li
 | `space c a`           | Code action          |
 | `space r n`           | Rename               |
 | `space s` / `space v` | Split kanan / bawah  |
-| `space k w` | close all tabs  |
+| `space k w`           | close all tabs       |
 
 ## Ctrl shortcuts
 
-| Keys                 | Aksi                          |
-| -------------------- | ----------------------------- |
-| `ctrl+j`             | Buka/tutup terminal           |
-| `ctrl+p`             | Find file                     |
-| `ctrl+shift+o`       | Find function                 |
-| `ctrl+shift+n`       | New terminal                  |
-| `ctrl+a`             | Select all                    |
-| `ctrl+f`             | Find                          |
-| `ctrl+s`             | Save (semua mode)             |
-| `tab` / `shift+tab`  | Tab berikutnya / sebelumnya   |
+| Keys                | Aksi                        |
+| ------------------- | --------------------------- |
+| `ctrl+j`            | Buka/tutup terminal         |
+| `ctrl+p`            | Find file                   |
+| `ctrl+shift+o`      | Find function               |
+| `ctrl+a`            | Select all                  |
+| `ctrl+f`            | Find                        |
+| `ctrl+s`            | Save (semua mode)           |
+| `tab` / `shift+tab` | Tab berikutnya / sebelumnya |
 
 ## Ctrl yang dimakan vim (ubah ke `vim.handleKeys` untuk passthrough)
 
