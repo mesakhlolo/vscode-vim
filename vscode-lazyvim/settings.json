@@ -1,46 +1,7 @@
 {
-  // ============================================================
-  //  VSCode + VSCodeVim — LazyVim-style keybinding (CORE)
-  //  Leader key = <space>
-  //  Pendekatan: file ini HANYA berisi opsi VSCodeVim (vim.*).
-  //  SEMUA binding (termasuk leader <space>) ada di keybindings.json
-  //  sebagai chord + when clause (pola leviFrosty), sehingga leader
-  //  tetap jalan di luar fokus editor (preview README/wiki, panel).
-  //  Referensi: https://github.com/VSCodeVim/Vim
-  // ============================================================
-
-  // ===== VIM OPTIONS =====
-  "vim.leader": "<space>",
-  "vim.timeout": 500,
-
-  "vim.incsearch": true,
-  "vim.hlsearch": true,
-  "vim.searchHighlightColor": "#f6ff0080",
-  "vim.searchHighlightTextColor": "#fff",
-  "vim.smartRelativeLine": true,
-  "vim.surround": true,
-  "vim.easymotion": true,
-  "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": true,
-  "vim.highlightedyank.enable": true,
-
-  // ===== HANDLE KEYS =====
-  // false = biarkan VS Code native menangani kombinasi ini.
-  //  - <C-a> : Select All native (lebih berguna daripada dial increment)
-  //  - <C-s> : Save native (LazyVim <C-s> = Save juga)
-  //  - <C-f> : Find native VSCode
-  //  - <C-j> : di-handle native (terminal/panel dsb)
-  //  - <C-p> : Find File native VSCode (Quick Open)
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-s>": false,
-    "<C-f>": false,
-    "<C-j>": false,
-    "<C-p>": false
-  },
-
-  // ===== NON-RECURSIVE NORMAL MODE =====
-  // Esc membersihkan highlight pencarian (mirip LazyVim nohl).
+  // =========================
+  // ======= VIM OPTS ========
+  // ========================
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<Esc>"],
@@ -49,17 +10,25 @@
       "silent": true
     }
   ],
-
-  // ===== VISUAL MODE =====
-  // LazyVim: p di visual mem-paste tanpa menimpa register.
-  "vim.visualModeKeyBindings": [
-    {
-      "before": ["p"],
-      "after": ["P"]
-    }
-  ],
-
-  // ===== EXTENSION AFFINITY (performa VSCodeVim) =====
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-s>": false,
+    "<C-f>": false,
+    "<C-p>": false
+  },
+  "vim.incsearch": true,
+  "vim.searchHighlightColor": "#f6ff0080",
+  "vim.searchHighlightTextColor": "#fff",
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.highlightedyank.enable": true,
+  "vim.smartRelativeLine": true,
+  "vim.surround": true,
+  "vim.easymotion": true,
+  // =========================
+  // ====== PERFORMANCE ======
+  // =========================
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1
   }
