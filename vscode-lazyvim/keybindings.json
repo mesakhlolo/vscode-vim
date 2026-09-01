@@ -1,0 +1,228 @@
+// Place your key bindings in this file to override the defaults
+// ============================================================
+//  VSCode + VSCodeVim — LazyVim-style keybinding (CORE)
+//  Leader key = <space>
+//  Pendekatan: SEMUA binding (termasuk leader <space>) didefinisikan
+//  di keybindings.json sebagai chord, dengan `when` clause berbasis
+//  vim mode (persis pola leviFrosty). Keunggulan: leader tetap bekerja
+//  di luar fokus editor (mis. preview README/wiki, panel, dsb) karena
+//  `when` memakai `(editorTextFocus || !inputFocus)`.
+//  settings.json hanya menampung opsi vim.* (lihat settings.json).
+//  Referensi: https://www.lazyvim.org/keymaps
+// ============================================================
+[
+  // ============================================================
+  //  WINDOW  (LazyVim: <leader>w *)
+  // ============================================================
+  // <space>- : [S]plit Window [B]elow
+  {
+    "key": "space -",
+    "command": "workbench.action.splitEditorDown",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  // <space>| : Split Window Right
+  {
+    "key": "space |",
+    "command": "workbench.action.splitEditorRight",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  // <space>wd : Delete [W]indow
+  {
+    "key": "space w d",
+    "command": "workbench.action.closeGroup",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  // <space>wm : Toggle Zoom [M]ode
+  {
+    "key": "space w m",
+    "command": "workbench.action.editorLayoutSingle",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+
+  // ============================================================
+  //  BUFFER  (LazyVim: <leader>b *)
+  // ============================================================
+  // <space>bb : Switch to Other [B]uffer
+  {
+    "key": "space b b",
+    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  // <space>bd : [D]elete Buffer
+  {
+    "key": "space b d",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  // <space>bo : Delete [O]ther Buffers
+  {
+    "key": "space b o",
+    "command": "workbench.action.closeOtherEditors",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+
+  // ============================================================
+  //  FILE  (LazyVim: <leader>f *)
+  // ============================================================
+  // <space>ff : Find [F]ile
+  {
+    "key": "space f f",
+    "command": "workbench.action.quickOpen",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  // <space>fg : Find Files ([G]it-files)
+  {
+    "key": "space f g",
+    "command": "git.openChange",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  // <space>fr : [R]ecent files
+  {
+    "key": "space f r",
+    "command": "workbench.action.openRecent",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  // <space>fn : [N]ew file
+  {
+    "key": "space f n",
+    "command": "workbench.action.files.newUntitledFile",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  // <space>ft : Terminal ([T]erminal Root Dir)
+  {
+    "key": "space f t",
+    "command": "workbench.action.terminal.new",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+
+  // ============================================================
+  //  EXPLORER  (LazyVim: <leader>e)
+  // ============================================================
+  // <space>e : open Explorer (fokus ke files)
+  {
+    "key": "space e",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.files.action.focusFilesExplorer"
+      ]
+    },
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !sideBarFocus"
+  },
+  // <space>e : toggle Explorer / kembali ke editor
+  {
+    "key": "space e",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.action.focusActiveEditorGroup"
+      ]
+    },
+    "when": "sideBarFocus && !inputFocus"
+  },
+
+  // ============================================================
+  //  SEARCH  (LazyVim: <leader>s *)
+  // ============================================================
+  // <space>sg : [G]rep / find in files
+  {
+    "key": "space s g",
+    "command": "workbench.action.findInFiles",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  // <space>sd : [D]iagnostics
+  {
+    "key": "space s d",
+    "command": "workbench.actions.view.problems",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  // <space>sk : Show [K]eymaps
+  {
+    "key": "space s k",
+    "command": "workbench.action.openGlobalKeybindings",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  // <space>ss : LSP [S]ymbols
+  {
+    "key": "space s s",
+    "command": "workbench.action.gotoSymbol",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+
+  // ============================================================
+  //  GIT  (LazyVim: <leader>g *)
+  // ============================================================
+  // <space>gs : Git [S]tatus
+  {
+    "key": "space g s",
+    "command": "runCommands",
+    "args": {
+      "commands": ["workbench.view.scm", "workbench.scm.focus"]
+    },
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  // <space>gd : Git [D]iff hunks
+  {
+    "key": "space g d",
+    "command": "git.openChange",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  // <space>gb : Git [B]lame Line
+  {
+    "key": "space g b",
+    "command": "git.blame",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  // <space>gl : Git [L]og
+  {
+    "key": "space g l",
+    "command": "git.log",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+
+  // ============================================================
+  //  LSP / CODE  (LazyVim: <leader>c *)
+  // ============================================================
+  // <space>ca : Code [A]ction
+  {
+    "key": "space c a",
+    "command": "editor.action.codeAction",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  // <space>cr : [R]ename
+  {
+    "key": "space c r",
+    "command": "editor.action.rename",
+    "when": "vim.mode == 'Normal' && editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  },
+  // <space>cf : [F]ormat
+  {
+    "key": "space c f",
+    "command": "editor.action.formatDocument",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  // <space>co : [O]rganize Imports
+  {
+    "key": "space c o",
+    "command": "editor.action.organizeImports",
+    "when": "vim.mode == 'Normal' && editorTextFocus && !editorReadonly"
+  },
+  // <space>cs : [S]ymbols
+  {
+    "key": "space c s",
+    "command": "workbench.action.gotoSymbol",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+
+  // ============================================================
+  //  QUIT  (LazyVim: <leader>q)
+  // ============================================================
+  // <space>qq : [Q]uit All
+  {
+    "key": "space q q",
+    "command": "workbench.action.closeWindow",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  }
+]
