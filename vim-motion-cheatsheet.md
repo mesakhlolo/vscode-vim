@@ -1,4 +1,4 @@
-# Vim Motion Cheatsheet — Beginner → Intermediate
+# Vim Motion Cheatsheet - Beginner → Intermediate
 
 Reference singkat untuk belajar vim motion dari nol sampai intermediate.
 
@@ -6,10 +6,10 @@ Reference singkat untuk belajar vim motion dari nol sampai intermediate.
 
 ## Cara Belajar Vim
 
-1. **Vimtutor** — jalankan `vimtutor` di terminal (sudah include di Vim). ~30 menit.
-2. **Tonton Ben Awad** — [Vim Tutorial](https://www.youtube.com/watch?v=IiwGbcd8S7I), 1 jam, covers basic sampai intermediate (moving, deleting, macros, refactoring, block commands).
-3. **Langsung pakai** — activate vim mode di VS Code / Zed, pakai untuk daily coding.
-4. **Ulangi** — setiap hari ingat 1-2 motion baru, lalu pakai sampai jadi habit.
+1. **Vimtutor** - jalankan `vimtutor` di terminal (sudah include di Vim). ~30 menit.
+2. **Tonton Ben Awad** - [Vim Tutorial](https://www.youtube.com/watch?v=IiwGbcd8S7I), 1 jam, covers basic sampai intermediate (moving, deleting, macros, refactoring, block commands).
+3. **Langsung pakai** - activate vim mode di VS Code / Zed, pakai untuk daily coding.
+4. **Ulangi** - setiap hari ingat 1-2 motion baru, lalu pakai sampai jadi habit.
 
 ---
 
