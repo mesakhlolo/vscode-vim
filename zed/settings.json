@@ -8,7 +8,7 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "minimap": {
-    "show": "always",
+    "show": "always"
   },
   "proxy": "",
   "base_keymap": "VSCode",
@@ -25,32 +25,30 @@
   "cli_default_open_behavior": "existing_window",
 
   // disable ai inline suggestion
-  "show_completions_on_input": false,
   "show_edit_predictions": false,
-  "use_autoclose": false,
 
   // workspace classic layout (old zed layout)
   "project_panel": {
-    "dock": "left",
+    "dock": "left"
   },
   "outline_panel": {
-    "dock": "left",
+    "dock": "left"
   },
   "collaboration_panel": {
-    "dock": "left",
+    "dock": "left"
   },
   "agent": {
     "dock": "right",
     "favorite_models": [],
-    "model_parameters": [],
+    "model_parameters": []
   },
   "git_panel": {
-    "dock": "left",
+    "dock": "left"
   },
   "agent_servers": {
     "github-copilot-cli": {
-      "type": "registry",
-    },
+      "type": "registry"
+    }
   },
 
   // === vim mode ===
@@ -59,7 +57,7 @@
     "use_system_clipboard": "always",
     "toggle_relative_line_numbers": true,
     "highlight_on_yank_duration": 200,
-    "use_regex_search": true,
+    "use_regex_search": true
   },
-  "relative_line_numbers": "enabled",
+  "relative_line_numbers": "enabled"
 }
