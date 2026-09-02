@@ -10,83 +10,92 @@
     "context": "Workspace",
     "bindings": {
       // "shift shift": "file_finder::Toggle"
-    },
+    }
   },
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {
       // "j k": "vim::NormalBefore"
-    },
+    }
   },
-  // VSCODE personal keybinding
+  // =============================
+  // ====== VSCODE TEXT KEYS =====
+  // =============================
   {
     "context": "Editor && mode == full",
     "bindings": {
+      // alt+; -> cursorEnd + type ";"
       "alt-;": ["workspace::SendKeystrokes", "end ;"],
+      // ctrl+enter -> insert line after (editor.action.insertLineAfter)
       "ctrl-enter": "editor::NewlineBelow",
-      "ctrl-0": ["zed::ResetBufferFontSize", { "persist": false }],
-    },
+      // ctrl+0 -> zoom reset (workbench.action.zoomReset)
+      "ctrl-0": ["zed::ResetBufferFontSize", { "persist": false }]
+    }
   },
-  // LEADER (space) VIM MOTION
+  // =============================================================
+  // ====== VIM HANDLEKEYS (a,b,f,j,k,p,s,w NOT hijacked) ========
+  // ====== Restore native VSCode ctrl shortcuts from vim ========
+  // =============================================================
   {
-    "context": "vim_mode == normal && !menu",
+    "context": "VimControl && !menu",
     "bindings": {
-      "space w": "workspace::Save",
-      "space q": "pane::CloseActiveItem",
-      "space f f": "file_finder::Toggle",
-      "space f g": "pane::DeploySearch",
-      "space e": "workspace::ToggleLeftDock",
-      "space g d": "editor::GoToDefinition",
-      "space c a": "editor::ToggleCodeActions",
-      "space r n": "editor::Rename",
-      "space s": "pane::SplitRight",
-      "space v": "pane::SplitDown",
-      "space k w": "pane::CloseAllItems",
-      "tab": "pane::ActivateNextItem",
-      "shift-tab": "pane::ActivatePreviousItem",
-    },
-  },
-  // Restore VS Code ctrl shortcuts that vim mode hijacks
-  {
-    "context": "vim_mode == normal && !menu",
-    "bindings": {
-      "ctrl-j": "terminal_panel::Toggle",
+      // <C-a> native: select all
       "ctrl-a": "editor::SelectAll",
-    },
+      // <C-b> native: toggle sidebar
+      "ctrl-b": "workspace::ToggleLeftDock",
+      // <C-f> native: find in file
+      "ctrl-f": "buffer_search::Deploy",
+      // <C-j> native: toggle terminal panel
+      "ctrl-j": "terminal_panel::Toggle",
+      // <C-k> left to Zed (chord leader, biarkan Zed menangani)
+      // <C-p> native: quick open
+      "ctrl-p": "file_finder::Toggle",
+      // <C-s> native: save
+      "ctrl-s": "workspace::Save",
+      // <C-w> native: close editor
+      "ctrl-w": "pane::CloseActiveItem"
+    }
   },
+  // ==========================
+  // ====== VIM LEADER KEY ====
+  // ==========================
   {
     "context": "vim_mode == normal && !menu",
     "bindings": {
-      "ctrl-b": "workspace::ToggleLeftDock",
-    },
+      // space w -> [W]rite (save + format via format_on_save)
+      "space w": "workspace::Save",
+      // space f f -> [F]ind [F]iles
+      "space f f": "file_finder::Toggle",
+      // space e -> [E]xplorer (toggle sidebar)
+      "space e": "workspace::ToggleLeftDock"
+    }
   },
+  // ==================================
+  // ====== TAB INDENT/OUTDENT ========
+  // ==================================
   {
-    "context": "vim_mode == normal",
+    "context": "Editor",
     "bindings": {
-      "ctrl-f": "buffer_search::Deploy",
-    },
+      "tab": "editor::Tab",
+      "shift-tab": "editor::Backtab"
+    }
   },
-  // Optional: enable Sneak (easiest easymotion/2-char jump equivalent)
+  // =====================================================
+  // ====== alt+j / alt+k = arrow-like navigation =======
+  // Pickers, lists and menus (behaves exactly like up/down)
   {
-    "context": "vim_mode == normal || vim_mode == visual",
+    "context": "menu || Picker",
     "bindings": {
-      "s": "vim::PushSneak",
-    },
+      "alt-j": "menu::SelectNext",
+      "alt-k": "menu::SelectPrevious"
+    }
   },
-  // Tab switching when NOT in an editor (markdown preview, panels, docks)
+  // Completion / suggestion menu (moves selection, stays open)
   {
-    "context": "Workspace && !Editor",
+    "context": "Editor && showing_completions",
     "bindings": {
-      "tab": "pane::ActivateNextItem",
-      "shift-tab": "pane::ActivatePreviousItem",
-    },
-  },
-  // Forward ctrl+p and tab to the terminal (opencode needs these), nothing else
-  {
-    "context": "Terminal",
-    "bindings": {
-      "ctrl-p": ["terminal::SendKeystroke", "ctrl-p"],
-      "tab": ["terminal::SendKeystroke", "tab"],
-    },
-  },
+      "alt-j": "editor::ContextMenuNext",
+      "alt-k": "editor::ContextMenuPrevious"
+    }
+  }
 ]
