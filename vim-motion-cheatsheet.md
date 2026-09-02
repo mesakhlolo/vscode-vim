@@ -52,7 +52,7 @@ Reference singkat untuk belajar vim motion dari nol sampai intermediate.
 
 ---
 
-## 4. Line Motions
+## 4. Line & Paragraph Motions
 
 | Key | Aksi                    |
 | --- | ----------------------- |
@@ -60,6 +60,10 @@ Reference singkat untuk belajar vim motion dari nol sampai intermediate.
 | `^` | Awal non-kosong pertama |
 | `$` | Akhir baris             |
 | `   | `                       | Kolom spesifik (contoh: `10\|`) |
+| `{` | Loncat ke baris kosong sebelumnya (awal paragraph) |
+| `}` | Loncat ke baris kosong berikutnya (awal paragraph berikut) |
+
+> `{` dan `}` berguna untuk skip block kode yang dipisah baris kosong. Misal: skip antar function, antar section CSS, atau antar blok logika.
 
 ---
 
@@ -86,11 +90,13 @@ Cari karakter spesifik **dalam satu baris**. Super berguna untuk skip langsung k
 | `T{char}`  | Cari ke belakang (sebelum char)   |
 | `;`        | Repeat find terakhir              |
 | `,`        | Repeat find terakhir (arah lain)  |
+| `%`        | Loncat ke pasangan bracket terdekat (`()`, `{}`, `[]`) |
 
 Contoh:
 - `fx` → loncat ke `x` berikutnya di baris ini
 - `dt)` → delete sampai sebelum `)` (sama dengan `df)` tapi inklusif)
 - `ct,` → change sampai sebelum koma
+- `%` → loncat ke `)` pasangan jika cursor di `(`, atau ke `{` jika di `}`, dst. Berguna untuk cek bracket balance.
 
 > **Tips:** Pakai `t` lebih sering dari `f` — posisi cursor tepat sebelum target, lebih natural untuk editing.
 
@@ -226,7 +232,42 @@ Contoh (dengan konteks JS/PHP/Laravel):
 
 ---
 
-## 13. Marks & Jumps
+## 13. Macros
+
+Record dan playback sequence keystrokes. Powerful untuk repetitive tasks.
+
+| Key         | Aksi                                    |
+| ----------- | --------------------------------------- |
+| `q{a-z}`    | Mulai **record** macro ke register      |
+| `q`         | Stop recording                          |
+| `@{a-z}`    | **Playback** macro dari register        |
+| `@@`        | Ulangi macro terakhir yang diplay       |
+| `5@a`       | Play macro `a` sebanyak 5 kali          |
+
+**Cara pakai:**
+1. Posisi cursor di tempat yang benar
+2. `qa` → mulai record ke register `a`
+3. Lakukan sequence editing (misal: `Iconst ` → `Esc` → `j`)
+4. `q` → stop recording
+5. `@a` → play macro sekali
+6. `10@a` → play macro 10 kali
+
+**Use case:** tambahkan `const ` di depan 20 variabel sekaligus:
+```
+qa → Iconst  → Esc → j → q
+10@a
+```
+
+**Use case:** wrap setiap baris dengan console.log:
+```
+qq → Iconsole.log(' → Esc → A(') → Esc → j → q
+```
+
+> **Tips:** Macro sangat mirip dengan `.` (dot command). Bedanya: macro record **full sequence**, dot hanya repeat **action terakhir**. Pakai macro untuk complex multi-step, pakai dot untuk simple single-action repeat.
+
+---
+
+## 14. Marks & Jumps
 
 | Key      | Aksi                              |
 | -------- | --------------------------------- |
@@ -237,7 +278,7 @@ Contoh (dengan konteks JS/PHP/Laravel):
 
 ---
 
-## 14. Useful Commands
+## 15. Useful Commands
 
 | Key       | Aksi                               |
 | --------- | ---------------------------------- |
@@ -256,7 +297,7 @@ Contoh (dengan konteks JS/PHP/Laravel):
 
 ---
 
-## 15. Visual Mode + Operators
+## 16. Visual Mode + Operators
 
 | Key             | Aksi                      |
 | --------------- | ------------------------- |
@@ -270,7 +311,7 @@ Contoh (dengan konteks JS/PHP/Laravel):
 
 ---
 
-## 16. Daily Workflow (JS & PHP/Laravel)
+## 17. Daily Workflow (JS & PHP/Laravel)
 
 Contoh nyata yang sering dipakai saat ngoding:
 
@@ -332,7 +373,7 @@ V d   → select baris lalu delete
 
 ---
 
-## 17. Power Combos (editing cepat)
+## 18. Power Combos (editing cepat)
 
 Kombinasi yang paling sering dipakai "para pro" di dunia nyata saat ngoding. Fokus ke **repetisi** dan **irama**, bukan hafalan.
 
@@ -454,7 +495,7 @@ d3w     → delete 3 word
 
 ---
 
-## 18. Tips & Tricks
+## 19. Tips & Tricks
 
 ### The Holy Grail: `ciw`, `ci"`, `ci(`, `dit`
 
@@ -487,14 +528,65 @@ Sangat powerful untuk edit multiple lines sekaligus.
 
 ---
 
-## 19. Cheat Sheet Cepat (Print This!)
+## 20. Keybinding Recommendations
+
+Remap keys di VS Code / editor untuk workflow lebih cepat. Setting di `keybindings.json` (VS Code).
+
+### Escape Alternative (Paling Penting!)
+
+Escape key terlalu jauh dari home row. Remap ke combo yang lebih dekat:
+
+| Remap | Kelebihan | Kekurangan |
+|-------|-----------|------------|
+| `jj` | Paling umum, mudah diingat | Kadang interferensi jika mengetik "jj" |
+| `jk` | Unik, hampir tidak pernah diketik | Sedikit lebih panjang dari `jj` |
+| `kj` | Sama uniknya dengan `jk` | Beberapa orang lebih suka feel-nya |
+
+**VS Code setting:**
+```json
+{
+  "vim.insertModeKeybindings": [
+    { "before": ["j", "j"], "after": ["<Esc>"] },
+    { "before": ["j", "k"], "after": ["<Esc>"] }
+  ]
+}
+```
+
+> **Rekomendasi:** Pakai `jk` — paling aman karena hampir tidak ada kata "jk" di kode. `jj` juga bagus tapi kadang interferensi di comment/ string.
+
+### Leader Key
+
+Pakai `,` atau `<space>` sebagai leader key untuk custom shortcuts:
+
+```json
+{
+  "vim.leader": ","
+}
+```
+
+Contoh usage: `,w` untuk save, `,q` untuk quit, dll.
+
+### Lainnya yang Berguna
+
+| Remap | Fungsi |
+|-------|--------|
+| `jk` atau `jj` → `<Esc>` | Insert mode → Normal mode |
+| `Ctrl+h` → `<BS>` | Delete char di insert mode (built-in di VS Code) |
+| `Ctrl+j` → `<Enter>` | Newline di insert mode tanpa keluar insert |
+
+---
+
+## 21. Cheat Sheet Cepat (Print This!)
 
 ```
 NAVIGASI
   h j k l         Basic movement
   w b e            Word forward/back/end
+  W B E            WORD forward/back/end (whitespace)
   0 ^ $            Line start/first-char/end
+  { }              Paragraph prev/next (skip block kosong)
   f t ; ,          Find char / before char / repeat
+  %                Jump ke pasangan bracket
   H M L            Screen top/mid/bottom
   gg G             File start/end
   Ctrl+d/u         Half page down/up
@@ -510,6 +602,12 @@ EDITING
   dit cit yit      Inside tag (HTML/Blade)
   .                Repeat last action
   u Ctrl+r         Undo/redo
+
+MACROS
+  q{a-z}           Start record macro
+  q                Stop record
+  @{a-z}           Play macro
+  @@               Repeat last macro
 
 SEARCH
   / ? n N          Search forward/back/next/prev
@@ -529,11 +627,14 @@ POWER COMBO
   ci( ci[         Ganti args / array
   =G              Auto-format sampai akhir file
   Ctrl+v block    Edit banyak baris sekali
+
+KEYBINDING
+  jk / jj → Esc    Insert → Normal mode
 ```
 
 ---
 
-## 20. Resource Belajar Gratis
+## 22. Resource Belajar Gratis
 
 | Resource                    | Link                                                      | Fungsi                                                                    |
 | --------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------- |
