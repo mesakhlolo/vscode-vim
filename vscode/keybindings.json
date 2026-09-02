@@ -1,6 +1,6 @@
 // Place your key bindings in this file to override the defaults
 [
-  // ====== KEYBINDINGS VSCode (custom) ===
+  // ====== KEYBINDINGS VSCode (custom) ======
   // semicolon at the end
   {
     "key": "alt+;",
@@ -69,9 +69,9 @@
     "command": "-workbench.action.zoomReset"
   },
 
-  // ====== VIM LEADER space ==============
+  // VIM LEADER KEY (space)
   {
-    "key": "space w", // Save + format
+    "key": "space w", // [W]rite (Save + format)
     "command": "runCommands",
     "args": {
       "commands": [
@@ -82,82 +82,58 @@
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
-    "key": "space q", // Close editor
-    "command": "workbench.action.closeActiveEditor",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-  {
-    "key": "space f f", // Find file
+    "key": "space f f", // [F]ind [F]iles
     "command": "workbench.action.quickOpen",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
-    "key": "space f g", // Find in files (grep)
-    "command": "workbench.action.findInFiles",
+    "key": "space e", // [E]xplorer (toggle sidebar)
+    "command": "workbench.action.toggleSidebarVisibility",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
-  {
-    "key": "space e", // Toggle file explorer
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.toggleSidebarVisibility",
-        "workbench.files.action.focusFilesExplorer"
-      ]
-    },
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !sideBarFocus"
-  },
-  {
-    "key": "space e", // Toggle explorer -> back to editor
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.toggleSidebarVisibility",
-        "workbench.action.focusActiveEditorGroup"
-      ]
-    },
-    "when": "sideBarFocus && !inputFocus"
-  },
-  {
-    "key": "space g d", // Go to definition
-    "command": "editor.action.revealDefinition",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-  {
-    "key": "space c a", // Code action (quick fix / refactor)
-    "command": "editor.action.codeAction",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-  {
-    "key": "space r n", // Rename symbol
-    "command": "editor.action.rename",
-    "when": "vim.mode == 'Normal' && editorHasRenameProvider && editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "space s", // Split editor right
-    "command": "workbench.action.splitEditorRight",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-  {
-    "key": "space v", // Split editor down
-    "command": "workbench.action.splitEditorDown",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-  {
-    "key": "space k w", // Close all editors
-    "command": "workbench.action.closeAllEditors",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
-  },
-
-  // ==== BUFFER / TAB =======
+  // Ensure Tab key indents text properly in editor
   {
     "key": "tab",
-    "command": "workbench.action.nextEditorInGroup",
-    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+    "command": "tab",
+    "when": "editorTextFocus && !editorTabMovesFocus && !inSnippetMode"
   },
+  // Ensure Shift+Tab key outdents text properly in editor
   {
     "key": "shift+tab",
-    "command": "workbench.action.previousEditorInGroup",
-    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+    "command": "outdent",
+    "when": "editorTextFocus && !editorTabMovesFocus && !inSnippetMode"
+  },
+  // General List Navigation (Sidebar Explorer, Search Results Panel, Dropdown Lists)
+  {
+    "key": "alt+j",
+    "command": "list.focusDown",
+    "when": "listFocus"
+  },
+  {
+    "key": "alt+k",
+    "command": "list.focusUp",
+    "when": "listFocus"
+  },
+  // Quick Open Navigation (Ctrl+P & Ctrl+Shift+P) - Behaves exactly like arrow keys
+  {
+    "key": "alt+j",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "alt+k",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  },
+  // Auto-complete Suggestion Navigation (IntelliSense Widget)
+  {
+    "key": "alt+j",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetVisible"
+  },
+  {
+    "key": "alt+k",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetVisible"
   }
 ]

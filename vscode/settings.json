@@ -1,5 +1,7 @@
 {
-  // ===== VIM =====
+  // ========================
+  // ======= VIM OPTS =======
+  // ========================
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<Esc>"],
@@ -10,10 +12,13 @@
   ],
   "vim.handleKeys": {
     "<C-a>": false,
+    "<C-b>": false,
     "<C-f>": false,
     "<C-j>": false,
+    "<C-k>": false,
     "<C-p>": false,
-    "<C-b>": false
+    "<C-s>": false,
+    "<C-w>": false
   },
   "vim.incsearch": true,
   "vim.searchHighlightColor": "#f6ff0080",
@@ -25,27 +30,28 @@
   "vim.smartRelativeLine": true,
   "vim.surround": true,
   "vim.easymotion": true,
+  // =========================
+  // ====== PERFORMANCE ======
+  // =========================
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1
   },
-  // ===== VIM =====
 
-  // 1440p 24inch external monitor
+  // =========================
+  // =========================
+  // =========================
   "window.zoomLevel": 1,
-  // font and theme
-  "editor.cursorBlinking": "solid",
   "editor.mouseWheelZoom": false,
   "editor.fontSize": 16,
-  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontFamily": "Cascadia Code NF",
   "editor.fontLigatures": false,
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "Dark Modern",
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[php]": {
     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
   },
-  // everything else
   "editor.guides.bracketPairs": true,
   "editor.guides.bracketPairsHorizontal": false,
   "workbench.activityBar.compact": true,
@@ -63,6 +69,5 @@
   "workbench.browser.openLocalhostLinks": false,
   "workbench.experimental.modernUI": false,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
-  "workbench.editor.useModal": "off",
-  "workbench.activityBar.location": "top"
+  "workbench.editor.useModal": "off"
 }
