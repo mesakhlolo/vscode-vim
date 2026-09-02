@@ -12,10 +12,11 @@
   },
   "proxy": "",
   "base_keymap": "VSCode",
+  "soft_wrap": "editor_width",
   "format_on_save": "on",
 
   // font and theme settings
-  "buffer_font_family": "Geist Mono",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
   "ui_font_family": "Geist",
   "ui_font_size": 18.0,
   "theme": "One Dark",
@@ -52,7 +53,7 @@
     },
   },
 
-  // === vim mode (from vscode-vim) ===
+  // === vim mode ===
   "vim_mode": true,
   "vim": {
     "use_system_clipboard": "always",
