@@ -311,7 +311,56 @@ qq → Iconsole.log(' → Esc → A(') → Esc → j → q
 
 ---
 
-## 17. Daily Workflow (JS & PHP/Laravel)
+## 17. Surround (Membungkus Teks)
+
+> **Catatan:** Butuh plugin **vim-surround** (sudah default di VS Code Vim extension). Kalau belum ada, install dulu.
+
+Rumus utama: **"Blok lalu Bungkus"** — alur pikirannya sama seperti pakai mouse, tapi tanpa mouse.
+
+### Cara Pakai (Paling Intuitif)
+
+```
+ve → S]    → bungkus 1 kata dengan []
+viw → S"   → bungkus kata di cursor dengan ""
+v3e → S)   → bungkus 3 kata dengan ()
+```
+
+**Langkah:**
+1. **Blok teksnya** — pakai `ve` (1 kata ke depan) atau `viw` (kata di cursor) atau `v3e` (3 kata)
+2. **Ketik `S` + karakter pembungkus** — `S]`, `S"`, `S)`, `S}`, `S>`
+
+### Contoh Lengkap
+
+| Sebelum | Command | Sesudah |
+|---------|---------|---------|
+| `state` | `viw S"` | `"state"` |
+| `state` | `ve S)` | `(state)` |
+| `foo bar` | `v3e S[` | `[foo bar]` |
+| `x + y` | `ve S}` | `{x + y}` |
+
+### Semua Karakter Pembungkus
+
+| Karakter | Hasil |
+|----------|-------|
+| `(` atau `)` | `(text)` |
+| `[` atau `]` | `[text]` |
+| `{` atau `}` | `{text}` |
+| `<` atau `>` | `<text>` |
+| `"` | `"text"` |
+| `'` | `'text'` |
+| `` ` `` | `` `text` `` |
+
+### Kenapa Ini Paling Enak?
+
+- **Gak perlu menghafal** kode aneh — cukup ingat `S = Surround`
+- **Visual** — bisa lihat dulu teks yang mau dibungkus sebelum eksekusi
+- **Buat banyak kata** — tinggal blok panjangnya, lalu `S` + pembungkus
+
+> **Cover 90% kebutuhan** membungkus teks saat ngoding PHP, React, atau Laravel!
+
+---
+
+## 18. Daily Workflow (JS & PHP/Laravel)
 
 Contoh nyata yang sering dipakai saat ngoding:
 
@@ -373,7 +422,7 @@ V d   → select baris lalu delete
 
 ---
 
-## 18. Power Combos (editing cepat)
+## 19. Power Combos (editing cepat)
 
 Kombinasi yang paling sering dipakai "para pro" di dunia nyata saat ngoding. Fokus ke **repetisi** dan **irama**, bukan hafalan.
 
@@ -495,7 +544,7 @@ d3w     → delete 3 word
 
 ---
 
-## 19. Tips & Tricks
+## 20. Tips & Tricks
 
 ### The Holy Grail: `ciw`, `ci"`, `ci(`, `dit`
 
@@ -528,7 +577,7 @@ Sangat powerful untuk edit multiple lines sekaligus.
 
 ---
 
-## 20. Keybinding Recommendations
+## 21. Keybinding Recommendations
 
 Remap keys di VS Code / editor untuk workflow lebih cepat. Setting di `keybindings.json` (VS Code).
 
@@ -576,7 +625,7 @@ Contoh usage: `,w` untuk save, `,q` untuk quit, dll.
 
 ---
 
-## 21. Cheat Sheet Cepat (Print This!)
+## 22. Cheat Sheet Cepat (Print This!)
 
 ```
 NAVIGASI
@@ -628,13 +677,18 @@ POWER COMBO
   =G              Auto-format sampai akhir file
   Ctrl+v block    Edit banyak baris sekali
 
+SURROUND (plugin vim-surround)
+  ve S]           Bungkus kata dengan []
+  viw S"          Bungkus kata dengan ""
+  v3e S)          Bungkus 3 kata dengan ()
+
 KEYBINDING
   jk / jj → Esc    Insert → Normal mode
 ```
 
 ---
 
-## 22. Resource Belajar Gratis
+## 23. Resource Belajar Gratis
 
 | Resource                    | Link                                                      | Fungsi                                                                    |
 | --------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------- |
