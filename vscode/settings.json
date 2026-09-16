@@ -10,6 +10,12 @@
       "silent": true
     }
   ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-b>": false,
