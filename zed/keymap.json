@@ -73,13 +73,13 @@
   // ==================================
   // ====== TAB INDENT/OUTDENT ========
   // ==================================
-  {
-    "context": "Editor",
-    "bindings": {
-      "tab": "editor::Tab",
-      "shift-tab": "editor::Backtab"
-    }
-  },
+  // {
+  //   "context": "Editor",
+  //   "bindings": {
+  //     "tab": "editor::Tab",
+  //     "shift-tab": "editor::Backtab"
+  //   }
+  // },
   // =====================================================
   // ====== alt+j / alt+k = arrow-like navigation =======
   // Pickers, lists and menus (behaves exactly like up/down)
